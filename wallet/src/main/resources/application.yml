@@ -1,0 +1,38 @@
+application:
+  name: Shares Micro Service
+
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: inter
+            client-secret: "..."
+          provider:
+            keycloak:
+              authorization-uri: https://your-subdomain.oktapreview.com/oauth2/v1/authorize
+              token-uri: https://your-subdomain.oktapreview.com/oauth2/v1/token
+              user-info-uri: https://your-subdomain.oktapreview.com/oauth2/v1/userinfo
+              user-name-attribute: sub
+              jwk-set-uri: https://your-subdomain.oktapreview.com/oauth2/v1/keys
+
+  application:
+    name: wallet
+    version: 1.0-SNAPSHOT
+  datasource:
+    username: inter
+    url: jdbc:postgresql://localhost:5432/wallet
+    password: inter123
+  jpa:
+    open-in-view: 'true'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'

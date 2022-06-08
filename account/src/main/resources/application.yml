@@ -1,0 +1,23 @@
+application:
+  name: User Micro Service
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: account
+    version: 1.0-SNAPSHOT
+  datasource:
+    username: inter
+    url: jdbc:postgresql://localhost:5432/account
+    password: inter123
+  jpa:
+    open-in-view: 'true'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
